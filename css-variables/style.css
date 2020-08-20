@@ -1,0 +1,99 @@
+
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td{
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html{
+	height: 100%;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+}
+
+.content{
+	flex: 1 0 auto;
+}
+
+.footer{
+	flex: 1 0 auto;
+}
+
+/* 
+* Объявляем переменные и храним внутри:
+* :root{}
+*/
+:root{
+	/* Дефолтные значения для демонстрации */
+	--offset: 30px;
+	--container-size: 1170px;
+	--grid-size: 12;
+
+	/*colors*/
+	--primary-green: #00a698;
+	--primary-blue: #27aae3;
+	--primary-yellow: #ff9a5e;
+	--primary-violet: #e180f9;
+}
+
+.header{
+	padding: 8px 12px;
+	background-color: var(--primary-blue);
+}
+
+.grid-system{
+	padding: 18px 10px;
+}
+
+.container{
+	max-width: var(--container-size);
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box{
+	margin: 0 15px;
+	display: flex;
+	flex-basis: calc( (var(--container-size) / var(--grid-size) * 4) - var(--offset) );
+	height: 150px;
+	margin-bottom: var(--offset);
+}
+
+.box:last-child{
+	margin-bottom: 0;
+}
+
+.box_1{
+	background-color: var(--primary-green);
+}
+
+.box_2{
+	background-color: var(--primary-yellow);
+}
+
+.box_3{
+	background-color: var(--primary-blue);
+
+}
+
+.box_4{
+	background-color: var(--primary-violet);
+}
+
+.footer{
+	padding: 12px 12px;
+	background-color: var(--primary-green);
+}
+
+/* Чтобы начиная с этой ширины экрана наши блоки занимали максимальную ширину */
+@media screen and (max-width: 1024px){
+	.box{
+		flex-grow: 1;
+	}
+}
